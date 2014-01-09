@@ -24,15 +24,16 @@ class invitationEmail {
         $swiftMessage->setFrom($emailManager->fromEmail, $emailManager->fromName);
         $swiftMessage->setTo($email, $name);
                 
-        // spool the email
-        $emailSpool = $emailManager->getEmailSpool($swiftMessage);
-        $emailSpool->priority = 10;
-        $emailSpool->template = $template;
-        $emailSpool->transport = 'smtp';
-       
-        echo $emailSpool->save(false);
-        //send email
-        Yii::app()->emailManager->spool();
+//        // spool the email
+//        $emailSpool = $emailManager->getEmailSpool($swiftMessage);
+//        $emailSpool->priority = 10;
+//        $emailSpool->template = $template;
+//        $emailSpool->transport = 'smtp';
+//       
+//        echo $emailSpool->save(false);
+//        //send email
+//        Yii::app()->emailManager->spool();
+        return Yii::app()->emailManager->deliver($swiftMessage, 'smtp');        
         
         return TRUE;
 
