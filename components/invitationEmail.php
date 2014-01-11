@@ -33,7 +33,7 @@ class invitationEmail {
 //        echo $emailSpool->save(false);
 //        //send email
 //        Yii::app()->emailManager->spool();
-        return Yii::app()->emailManager->deliver($swiftMessage, 'smtp');        
+        return Yii::app()->emailManager->deliver($swiftMessage);        
         
         return TRUE;
 
