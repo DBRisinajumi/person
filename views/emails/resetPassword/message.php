@@ -1,6 +1,6 @@
 <?php echo Yii::t(
         'PersonModule.module',
-        'You have been invited by {user} to become a user of system {system}',
+        'Your password reseted by {user} for system {system}',
         array(
             '{user}' => Yii::app()->user->name,
             '{system}' => Yii::app()->name,
@@ -13,7 +13,7 @@ echo Yii::t(
 
 echo Yii::t('PersonModule.module','User name') . ': ' . $username . '<br/>' . PHP_EOL;
 
-echo Yii::t('PersonModule.module','Password') . ': ' . $password . '<br/><br/>' . PHP_EOL;
+echo Yii::t('PersonModule.module','New password') . ': ' . $password . '<br/><br/>' . PHP_EOL;
 
 echo 'Cheers,' . '<br/>' . PHP_EOL;
 echo 'The '.Yii::app()->name . ' Team';

@@ -1,19 +1,19 @@
 <?php
     $this->setPageTitle(
-        Yii::t('PersonModule.model', 'Person')
+        Yii::t('PersonModule.module', 'Person')
         . ' - '
-        . Yii::t('PersonModule.crud', 'View')
+        . Yii::t('PersonModule.crud_static', 'View')
         . ': '   
         . $model->getItemLabel()            
 );    
-$this->breadcrumbs[Yii::t('PersonModule.model','People')] = array('admin');
+$this->breadcrumbs[Yii::t('PersonModule.module','People')] = array('admin');
 $this->breadcrumbs[$model->{$model->tableSchema->primaryKey}] = array('view','id' => $model->{$model->tableSchema->primaryKey});
-$this->breadcrumbs[] = Yii::t('PersonModule.crud', 'View');
+$this->breadcrumbs[] = Yii::t('PersonModule.crud_static', 'View');
 ?>
 
 <?php $this->widget("TbBreadcrumbs", array("links"=>$this->breadcrumbs)) ?>
     <h1>
-        <?php echo Yii::t('PersonModule.model','Person')?>
+        <?php echo Yii::t('PersonModule.module','Person')?>
         <small>
             <?php echo $model->itemLabel ?>
 
@@ -29,7 +29,7 @@ $this->breadcrumbs[] = Yii::t('PersonModule.crud', 'View');
 <div class="row">
     <div class="span7">
         <h2>
-            <?php echo Yii::t('PersonModule.crud','Data')?>            <small>
+            <?php echo Yii::t('PersonModule.crud_static','Data')?>            <small>
                 #<?php echo $model->id ?>            </small>
         </h2>
 

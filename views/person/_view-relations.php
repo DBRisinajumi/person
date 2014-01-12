@@ -1,13 +1,13 @@
 
 <!--
 <h2>
-    <?php echo Yii::t('PersonModule.crud', 'Relations') ?></h2>
+    <?php echo Yii::t('PersonModule.crud_static', 'Relations') ?></h2>
 -->
 
 
 <?php 
         echo '<h3>';
-            echo Yii::t('PersonModule.model','relation.CcucUserCompanies').' ';
+            echo Yii::t('PersonModule.module','relation.CcucUserCompanies').' ';
             $this->widget(
                 'bootstrap.widgets.TbButtonGroup',
                 array(

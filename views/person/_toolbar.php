@@ -40,11 +40,11 @@
                        'size'=>'large',
                        'buttons' => array(
                                array(
-                                #'label'=>Yii::t('PersonModule.crud','Relations'),
+                                #'label'=>Yii::t('PersonModule.crud_static','Relations'),
                                 'icon'=>'icon-random',
                                 'items'=>array(array(
-                    'icon' => 'arrow-right','label' => Yii::t('PersonModule.model','relation.CcucUserCompanies'), 'url' =>array('/person/ccucUserCompany/admin')),array(
-                    'icon' => 'circle-arrow-left','label' => Yii::t('PersonModule.model','relation.User'), 'url' =>array('/person/user/admin')),
+                    'icon' => 'arrow-right','label' => Yii::t('PersonModule.module','relation.CcucUserCompanies'), 'url' =>array('/person/ccucUserCompany/admin')),array(
+                    'icon' => 'circle-arrow-left','label' => Yii::t('PersonModule.module','relation.User'), 'url' =>array('/person/user/admin')),
             )
           ),
         ),
@@ -55,7 +55,7 @@
         <div class="btn-group">
             <?php
              $this->widget("bootstrap.widgets.TbButton", array(
-                           "label"=>Yii::t("PersonModule.crud","Manage"),
+                           "label"=>Yii::t("PersonModule.crud_static","Manage"),
                            "icon"=>"icon-list-alt",
                            "size"=>"large",
                            "url"=>array("admin"),
@@ -68,7 +68,7 @@
         <div class="btn-group">
             <?php
                    $this->widget("bootstrap.widgets.TbButton", array(
-                       #"label"=>Yii::t("PersonModule.crud","Cancel"),
+                       #"label"=>Yii::t("PersonModule.crud_static","Cancel"),
                        "icon"=>"chevron-left",
                        "size"=>"large",
                        "url"=>(isset($_GET["returnUrl"]))?$_GET["returnUrl"]:array("{$this->id}/admin"),
@@ -76,11 +76,11 @@
                        "htmlOptions"=>array(
                                        "class"=>"search-button",
                                        "data-toggle"=>"tooltip",
-                                       "title"=>Yii::t("PersonModule.crud","Cancel"),
+                                       "title"=>Yii::t("PersonModule.crud_static","Cancel"),
                                    )
                     ));
                    $this->widget("bootstrap.widgets.TbButton", array(
-                        "label"=>Yii::t("PersonModule.crud","Create"),
+                        "label"=>Yii::t("PersonModule.crud_static","Create"),
                         "icon"=>"icon-plus",
                         "size"=>"large",
                         "type"=>"success",
@@ -88,18 +88,18 @@
                         "visible"=>$showCreateButton && (Yii::app()->user->checkAccess("Person.Person.*") || Yii::app()->user->checkAccess("Person.Person.Create"))
                    ));
                     $this->widget("bootstrap.widgets.TbButton", array(
-                        "label"=>Yii::t("PersonModule.crud","Delete"),
+                        "label"=>Yii::t("PersonModule.crud_static","Delete"),
                         "type"=>"danger",
                         "icon"=>"icon-trash icon-white",
                         "size"=>"large",
                         "htmlOptions"=> array(
                             "submit"=>array("delete","id"=>$model->{$model->tableSchema->primaryKey}, "returnUrl"=>(Yii::app()->request->getParam("returnUrl"))?Yii::app()->request->getParam("returnUrl"):$this->createUrl("admin")),
-                            "confirm"=>Yii::t("PersonModule.crud","Do you want to delete this item?")
+                            "confirm"=>Yii::t("PersonModule.crud_static","Do you want to delete this item?")
                         ),
                         "visible"=> $showDeleteButton && (Yii::app()->user->checkAccess("Person.Person.*") || Yii::app()->user->checkAccess("Person.Person.Delete"))
                     ));
                     $this->widget("bootstrap.widgets.TbButton", array(
-                        #"label"=>Yii::t("PersonModule.crud","Update"),
+                        #"label"=>Yii::t("PersonModule.crud_static","Update"),
                         "icon"=>"icon-edit icon-white",
                         "type"=>"primary",
                         "size"=>"large",
@@ -107,18 +107,18 @@
                         "visible"=> $showUpdateButton &&  (Yii::app()->user->checkAccess("Person.Person.*") || Yii::app()->user->checkAccess("Person.Person.Update"))
                     ));
                     $this->widget("bootstrap.widgets.TbButton", array(
-                        #"label"=>Yii::t("PersonModule.crud","View"),
+                        #"label"=>Yii::t("PersonModule.crud_static","View"),
                         "icon"=>"icon-eye-open",
                         "size"=>"large",
                         "url"=>array("view","id"=>$model->{$model->tableSchema->primaryKey}),
                         "visible"=>$showViewButton &&  (Yii::app()->user->checkAccess("Person.Person.*") || Yii::app()->user->checkAccess("Person.Person.View")),
                         "htmlOptions"=>array(
                                       "data-toggle"=>"tooltip",
-                                      "title"=>Yii::t("PersonModule.crud","View Mode"),
+                                      "title"=>Yii::t("PersonModule.crud_static","View Mode"),
                         )
                     ));
                     $this->widget("bootstrap.widgets.TbButton", array(
-                       "label"=>Yii::t("PersonModule.crud","Save"),
+                       "label"=>Yii::t("PersonModule.crud_static","Save"),
                        "icon"=>"icon-thumbs-up icon-white",
                        "size"=>"large",
                        "type"=>"primary",
@@ -134,13 +134,13 @@
                 $this->widget(
                        "bootstrap.widgets.TbButton",
                        array(
-                           #"label"=>Yii::t("PersonModule.crud","Search"),
+                           #"label"=>Yii::t("PersonModule.crud_static","Search"),
                                    "icon"=>"icon-search",
                                    "size"=>"large",
                                    "htmlOptions"=>array(
                                        "class"=>"search-button",
                                        "data-toggle"=>"tooltip",
-                                       "title"=>Yii::t("PersonModule.crud","Advanced Search"),
+                                       "title"=>Yii::t("PersonModule.crud_static","Advanced Search"),
                                    )
                            )
                        );
@@ -149,13 +149,13 @@
                 $this->widget(
                        "bootstrap.widgets.TbButton",
                        array(
-                           #"label"=>Yii::t("PersonModule.crud","Clear"),
+                           #"label"=>Yii::t("PersonModule.crud_static","Clear"),
                                    "icon"=>"icon-remove-sign",
                                    "size"=>"large",
                                    "url"=>Yii::app()->baseURL."/".Yii::app()->request->getPathInfo(),
                                    "htmlOptions"=>array(
                                       "data-toggle"=>"tooltip",
-                                      "title"=>Yii::t("PersonModule.crud","Clear Search"),
+                                      "title"=>Yii::t("PersonModule.crud_static","Clear Search"),
                                    )
                            )
                        );

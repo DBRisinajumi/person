@@ -1,11 +1,11 @@
 <?php
 $this->setPageTitle(
-    Yii::t('PersonModule.model', 'People')
+    Yii::t('PersonModule.module', 'People')
     . ' - '
-    . Yii::t('PersonModule.crud', 'Manage')
+    . Yii::t('PersonModule.crud_static', 'Manage')
 );
 
-$this->breadcrumbs[] = Yii::t('PersonModule.model', 'People');
+$this->breadcrumbs[] = Yii::t('PersonModule.module', 'People');
 Yii::app()->clientScript->registerScript('search', "
     $('.search-button').click(function(){
         $('.search-form').toggle();
@@ -24,8 +24,8 @@ Yii::app()->clientScript->registerScript('search', "
 <?php $this->widget("TbBreadcrumbs", array("links" => $this->breadcrumbs)) ?>
     <h1>
 
-        <?php echo Yii::t('PersonModule.model', 'People'); ?>
-        <small><?php echo Yii::t('PersonModule.crud', 'Manage'); ?></small>
+        <?php echo Yii::t('PersonModule.module', 'People'); ?>
+        <small><?php echo Yii::t('PersonModule.crud_static', 'Manage'); ?></small>
 
     </h1>
 

@@ -35,6 +35,8 @@ abstract class BasePerson extends CActiveRecord
             parent::rules(), array(
                 array('first_name, last_name', 'required'),
                 array('email, phone, user_id, deleted', 'default', 'setOnEmpty' => true, 'value' => null),
+                array('email', 'email'),     
+                array('email', 'unique', 'message' => Yii::t('PersonModule.module',"This user's email address already exists.")),
                 array('user_id, deleted', 'numerical', 'integerOnly' => true),
                 array('first_name, last_name, email', 'length', 'max' => 255),
                 array('phone', 'length', 'max' => 50),
@@ -54,7 +56,10 @@ abstract class BasePerson extends CActiveRecord
             parent::behaviors(), array(
                 'savedRelated' => array(
                     'class' => '\GtcSaveRelationsBehavior'
-                )
+                ),
+              'LoggableBehavior' => array(
+                'class' => 'LoggableBehavior'
+                ),
             )
         );
     }
@@ -72,13 +77,15 @@ abstract class BasePerson extends CActiveRecord
     public function attributeLabels()
     {
         return array(
-            'id' => Yii::t('model', 'ID'),
-            'first_name' => Yii::t('model', 'First Name'),
-            'last_name' => Yii::t('model', 'Last Name'),
-            'email' => Yii::t('model', 'Email'),
-            'phone' => Yii::t('model', 'Phone'),
-            'user_id' => Yii::t('model', 'User'),
-            'deleted' => Yii::t('model', 'Deleted'),
+            'id' => Yii::t('PersonModule.module', 'PersonId'),
+            'first_name' => Yii::t('PersonModule.module', 'First Name'),
+            'last_name' => Yii::t('PersonModule.module', 'Last Name'),
+            'email' => Yii::t('PersonModule.module', 'Email'),
+            'phone' => Yii::t('PersonModule.module', 'Phone'),
+            'user_id' => Yii::t('PersonModule.module', 'User'),
+            'deleted' => Yii::t('PersonModule.module', 'Deleted'),
+            'create_at' => Yii::t('PersonModule.module', 'Created at'),
+            'lastvisit_at' => Yii::t('PersonModule.module', 'Last visited at'),
         );
     }
 
@@ -95,7 +102,6 @@ abstract class BasePerson extends CActiveRecord
         $criteria->compare('t.phone', $this->phone, true);
         $criteria->compare('t.user_id', $this->user_id);
         $criteria->compare('t.deleted', $this->deleted);
-
 
         return $criteria;
 

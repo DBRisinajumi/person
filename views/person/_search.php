@@ -42,7 +42,7 @@
 
 
     <div class="row buttons">
-        <?php echo CHtml::submitButton(Yii::t('PersonModule.crud', 'Search')); ?>
+        <?php echo CHtml::submitButton(Yii::t('PersonModule.crud_static', 'Search')); ?>
     </div>
 
     <?php $this->endWidget(); ?>
